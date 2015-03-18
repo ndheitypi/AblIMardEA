@@ -4,19 +4,21 @@ FORMAT: 1A
 The user API is a collection of services related to the users data. Those services can be 
 used to register a new user, create, update and delete user data e.g. name, address.
 
-Complete list of user properties:
+## Complete list of user properties
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
 | id     |  String     | Public id to identify a user. Choosen automatically. | None (not editable) |
+| address     |  Array     | Array of address objects. | See address properties for more informations. | 0 | 10 |
 | country     |  Enum     | Country the user is from. | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
 | email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
 | firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
 | firstname2 |  String     | 2. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
 | firstname3 |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
 | gender     |  Enum     | Gender | One of: M,W | 1 | 1 |
-| language     |  Enum     | User language. | One of: DE,EN,ES,FR | 2 | 2 |
-| lastname     |  String     | Last name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
+| language     |  Enum     | Preffered language for this website. | One of: DE,EN,ES,FR | 2 | 2 |
+| lastname     |  String     | Last name. | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
+| password     |  String     | The user password. | Pattern: [0-9a-zA-Z_-] | 5 | 50 |
 | username     |  String     | Username. | Unique. Pattern: [0-9a-zA-Z_-] | 3 | 255 |
 # Group Users
 
