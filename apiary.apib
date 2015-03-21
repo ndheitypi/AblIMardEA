@@ -9,7 +9,7 @@ used to register a new user, create, update and delete user data e.g. name, addr
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
 | id     |  String     | Public id to identify a user. Choosen automatically. | None (not editable) |
-| address     |  Array     | Array of address objects. | See address properties for more informations. | 0 | 10 |
+| address     |  Array[Object]     | Array of address objects. | See address properties for more informations. | 0 | 10 |
 | country     |  Enum     | Country the user is from. | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
 | email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
 | firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
@@ -20,6 +20,24 @@ used to register a new user, create, update and delete user data e.g. name, addr
 | lastname     |  String     | Last name. | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
 | password     |  String     | The user password. | Pattern: [0-9a-zA-Z_-] | 5 | 50 |
 | username     |  String     | Username. | Unique. Pattern: [0-9a-zA-Z_-] | 3 | 255 |
+
+## Complete list of address properties
+
+| Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
+|----------|:-------------:|:------:|------|:------:|------|------|
+| id     |  String     | Public id to identify a user. Choosen automatically. | None (not editable) |
+| address     |  Array[Object]     | Array of address objects. | See address properties for more informations. | 0 | 10 |
+| country     |  Enum     | Country the user is from. | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
+| email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
+| firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
+| firstname2 |  String     | 2. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
+| firstname3 |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
+| gender     |  Enum     | Gender | One of: M,W | 1 | 1 |
+| language     |  Enum     | Preffered language for this website. | One of: DE,EN,ES,FR | 2 | 2 |
+| lastname     |  String     | Last name. | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
+| password     |  String     | The user password. | Pattern: [0-9a-zA-Z_-] | 5 | 50 |
+| username     |  String     | Username. | Unique. Pattern: [0-9a-zA-Z_-] | 3 | 255 |
+
 # Group Users
 
 ## Users Collection [/users]
