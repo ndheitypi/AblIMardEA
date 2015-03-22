@@ -5,6 +5,7 @@ The user API is a collection of services related to the users data. Those servic
 used to register a new user, create, update and delete user data e.g. name, address.
 
 # Appendix
+Property can be left empty if minimum length equals zero.
 
 ## User properties
 
@@ -38,13 +39,37 @@ used to register a new user, create, update and delete user data e.g. name, addr
 | town |  String     | Town | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 
 # Group Users
-
-## Users Collection [/users]
-### List all Campaigns [GET]
+## List all users [/users]
+| Name      |      Content         | 
+|----------|:-------------:|
+| URL:     |  /users     | 
+| Request-Type:     |  GET     | 
+| Request body:     |  Optional     | 
+| Permission:     |  Administrator     | 
+### Get users [GET]
 + Response 200 (application/json)
 
-        [{
-          "id": 1, "title": "Advertise new product XYZ."
-        }, {
-          "id": 2, "title": "Advertise 50% discount of product XYZ."
-        }]
+        {
+            "paging": {
+                "page": 1
+                "pagesize": 10
+                "totalcount": 2
+            },
+            "list": [{
+              "id": "XZSDGWUZTGSJDGZU"
+              ,"country": null
+              ,"language": "EN"
+              ,"email": "john@test.com"
+              ,"firstname1": "John"
+              ,"lastname": "Doe"
+              ,"username": "johndoe"
+            }, {
+              "id": "XZSDGWUZTGSJDGAB"
+              ,"country": null
+              ,"language": "EN"
+              ,"email": "jane@test.com"
+              ,"firstname1": "Jane"
+              ,"lastname": "Doe"
+              ,"username": "janedoe"
+            }]
+        }
