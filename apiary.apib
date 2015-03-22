@@ -25,18 +25,13 @@ used to register a new user, create, update and delete user data e.g. name, addr
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| id     |  String     | Public id to identify a user. Choosen automatically. | None (not editable) |
-| address     |  Array[Object]     | Array of address objects. | See address properties for more informations. | 0 | 10 |
-| country     |  Enum     | Country the user is from. | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
-| email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
-| firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
-| firstname2 |  String     | 2. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
-| firstname3 |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
-| gender     |  Enum     | Gender | One of: M,W | 1 | 1 |
-| language     |  Enum     | Preffered language for this website. | One of: DE,EN,ES,FR | 2 | 2 |
-| lastname     |  String     | Last name. | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 255 |
-| password     |  String     | The user password. | Pattern: [0-9a-zA-Z_-] | 5 | 50 |
-| username     |  String     | Username. | Unique. Pattern: [0-9a-zA-Z_-] | 3 | 255 |
+| country     |  String     | Country | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
+| postcode |  String     | Postcode | Pattern: [0-9] | 3 | 10 |
+| phone |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
+| street     |  String     | Street | Pattern: [0-9a-zA-Z_-] + whitespace | 3 | 100 |
+| street2     |  String     | Country the user is from. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
+| suburb     |  String     | Email address. Used to login. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
+| town |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 
 # Group Users
 
