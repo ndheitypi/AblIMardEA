@@ -39,10 +39,10 @@ Property can be left empty if minimum length equals zero.
 | town |  String     | Town | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 
 # Group Users
-## List all users [/users]
+## List all users [/admin/users]
 | Name      |      Content         | 
 |----------|:-------------:|
-| URL:     |  /users     | 
+| URL:     |  /admin/users     | 
 | Request-Type:     |  GET     | 
 | Request-Body:     |  Optional     | 
 | Required permission:     |  Administrator |
@@ -74,4 +74,30 @@ Returns a list containing all users if the request body is empty. The user list 
               ,"lastname": "Doe"
               ,"username": "janedoe"
             }]
+        }
+        
+## Show public user profile [/users/{user_id}]
+| Name      |      Content         | 
+|----------|:-------------:|
+| URL:     |  /users/{user_id}     | 
+| Request-Type:     |  GET     | 
+| Request-Body:     |  None     | 
+| Required permission:     |  None |
+
+Returns a list containing all users if the request body is empty. The user list can be searched and filtered by sending a search body. 
+
++ Parameters
+    + user_id (required, string, `XZSDGWUZTGSJDGZU`) ... ID of the user in form of an string.
+
+### Get users [GET]
++ Response 200 (application/json)
+
+        {
+            "user": {
+              "id": "XZSDGWUZTGSJDGZU"
+              ,"country": null
+              ,"firstname1": "John"
+              ,"lastname": "Doe"
+              ,"username": "johndoe"
+            }
         }
