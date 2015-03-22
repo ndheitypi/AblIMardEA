@@ -44,8 +44,10 @@ Property can be left empty if minimum length equals zero.
 |----------|:-------------:|
 | URL:     |  /users     | 
 | Request-Type:     |  GET     | 
-| Request body:     |  Optional     | 
-| Permission:     |  Administrator     | 
+| Request-Body:     |  Optional     | 
+| Required permission:     |  Administrator |
+
+Returns a list containing all users if the rquest body is empty. The user list can be searched and filtered by sending a search body. 
 ### Get users [GET]
 + Response 200 (application/json)
 
