@@ -5,17 +5,18 @@ The user API is a collection of services related to the users data. Those servic
 used to register a new user, create, update and delete user data e.g. name, address.
 
 # Appendix
-Property can be left empty if minimum length equals zero.
+A Property can be left empty if minimum length equals zero.
 
 ## User properties
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| id     |  String     | Public id to identify a user. Choosen automatically. | None (not editable) |
+| id     |  String     | Public id to identify an user. Choosen automatically. | None (not editable) |
 | address     |  Array[Object]     | Array of address objects. | See address properties for more informations. | 0 | 10 |
 | company     |  String     | Company name. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | country     |  Enum     | Country the user is from. | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
 | email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
+| feedback     |  Array[Object]     | Array of feedback objects. |  See feedback properties for more informations.  | 0 | * |
 | firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 | firstname2 |  String     | 2. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | firstname3 |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
@@ -38,13 +39,22 @@ Property can be left empty if minimum length equals zero.
 | suburb     |  String     | Suburb | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | town |  String     | Town | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 
+## Feedback properties
+
+| Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
+|----------|:-------------:|:------:|------|:------:|------|------|
+| id     |  String     | Public id to identify the user who gave this feedback. Choosen automatically. | None (not editable) |
+| articleid     |  String     | Id of the article this feedback is about. | Valid Id. |  255 | 255 |
+| type |  Enum     | Type of feedback. 1=Negative, 2=Neutral, 3=Positiv | One of: 1, 2, 3 | 1 | 1 |
+| text     |  String     | The users feedback | [0-9a-zA-Z!?.:;-\n_] + whitespace |  255 | 255 |
+
 # Group Admin functions
 ## List all users [/admin/users]
 | Name      |      Content         | 
 |----------|:-------------:|
-| URL:     |  /admin/users     | 
+| URL:     |  **/admin/users**     | 
 | Parameter:     |  None    |
-| Request-Type:     |  GET     | 
+| Request-Type:     |  **GET**     | 
 | Request-Body:     |  *SearchRequest* (Optional)     | 
 | Required permission:     |  Administrator |
 
@@ -53,9 +63,9 @@ by sending a *search* body.
 ### Get list of users [GET]
 | Name      |      Content         | 
 |----------|:-------------:|
-| URL:     |  /admin/users/    | 
+| URL:     |  **/admin/users/**    | 
 | Parameter:     |  None    |
-| Request-Type:     |  POST     | 
+| Request-Type:     |  **POST**     | 
 | Request-Body:     |  *CreateUserRequest*     | 
 | Required permission:     |  Administrator |
 
@@ -106,9 +116,9 @@ by sending a *search* body.
 
 | Name      |      Content         | 
 |----------|:-------------:|
-| URL:     |  /admin/users    | 
+| URL:     |  **/admin/users**    | 
 | Parameter:     |  user_id: UserId in form of a string.    |
-| Request-Type:     |  GET     | 
+| Request-Type:     |  **GET**     | 
 | Request-Body:     |  None     | 
 | Required permission:     |  Administrator |
 
@@ -133,9 +143,9 @@ by sending a *search* body.
 ## Show public user profile [/users/{user_id}]
 | Name      |      Content         | 
 |----------|:-------------:|
-| URL:     |  /users/{user_id}     |
+| URL:     |  **/users/{user_id}**     |
 | Parameter:     |  user_id: UserId in form of a string.    |
-| Request-Type:     |  GET     | 
+| Request-Type:     |  **GET**     | 
 | Request-Body:     |  None     | 
 | Required permission:     |  None |
 
