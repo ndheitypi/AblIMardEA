@@ -45,7 +45,7 @@ Property can be left empty if minimum length equals zero.
 | URL:     |  /admin/users     | 
 | Parameter:     |  None    |
 | Request-Type:     |  GET     | 
-| Request-Body:     |  Optional     | 
+| Request-Body:     |  *SearchRequest* (Optional)     | 
 | Required permission:     |  Administrator |
 
 Returns a list containing all users if the request body is empty. The user list can be searched and filtered 
@@ -56,7 +56,7 @@ by sending a *search* body.
 | URL:     |  /admin/users/    | 
 | Parameter:     |  None    |
 | Request-Type:     |  POST     | 
-| Request-Body:     |  None     | 
+| Request-Body:     |  *CreateUserRequest*     | 
 | Required permission:     |  Administrator |
 
 + Response 200 (application/json)
@@ -99,7 +99,6 @@ by sending a *search* body.
                 "pass":"12345"
             }
         }
-
 
 + Response 200 (application/json)
 
