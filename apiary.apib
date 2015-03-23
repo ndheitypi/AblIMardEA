@@ -38,17 +38,27 @@ Property can be left empty if minimum length equals zero.
 | suburb     |  String     | Suburb | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | town |  String     | Town | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 
-# Group Users
+# Group Admin functions
 ## List all users [/admin/users]
 | Name      |      Content         | 
 |----------|:-------------:|
 | URL:     |  /admin/users     | 
+| Parameter:     |  None    |
 | Request-Type:     |  GET     | 
 | Request-Body:     |  Optional     | 
 | Required permission:     |  Administrator |
 
-Returns a list containing all users if the request body is empty. The user list can be searched and filtered by sending a search body. 
+Returns a list containing all users if the request body is empty. The user list can be searched and filtered 
+by sending a *search* body. 
 ### Get list of users [GET]
+| Name      |      Content         | 
+|----------|:-------------:|
+| URL:     |  /admin/users/    | 
+| Parameter:     |  None    |
+| Request-Type:     |  POST     | 
+| Request-Body:     |  None     | 
+| Required permission:     |  Administrator |
+
 + Response 200 (application/json)
 
         {
@@ -76,10 +86,56 @@ Returns a list containing all users if the request body is empty. The user list 
             }]
         }
         
+### Create new user [POST]
++ Request (application/json)
+
+        {
+            "user": {
+                "email":"test6@test.de"
+                ,"username":"test5"
+                ,"lang":"DE"
+            }
+            ,"passwordRequest": {
+                "pass":"12345"
+            }
+        }
+
+
++ Response 200 (application/json)
+
+## Specific user [/admin/users/{user_id}]
+
+| Name      |      Content         | 
+|----------|:-------------:|
+| URL:     |  /admin/users    | 
+| Parameter:     |  user_id: UserId in form of a string.    |
+| Request-Type:     |  GET     | 
+| Request-Body:     |  None     | 
+| Required permission:     |  Administrator |
+
++ Parameters
+    + user_id (required, string, `XZSDGWUZTGSJDGZU`) ... ID of the user in form of a string.
+    
+### Get user details [GET]
++ Response 200 (application/json)
+
+        {
+            "id": "XZSDGWUZTGSJDGZU"
+            ,"country": null
+            ,"language": "EN"
+            ,"email": "john@test.com"
+            ,"firstname1": "John"
+            ,"lastname": "Doe"
+            ,"username": "johndoe"
+        }
+        
+# Group Public functions
+
 ## Show public user profile [/users/{user_id}]
 | Name      |      Content         | 
 |----------|:-------------:|
-| URL:     |  /users/{user_id}     | 
+| URL:     |  /users/{user_id}     |
+| Parameter:     |  user_id: UserId in form of a string.    |
 | Request-Type:     |  GET     | 
 | Request-Body:     |  None     | 
 | Required permission:     |  None |
@@ -87,7 +143,7 @@ Returns a list containing all users if the request body is empty. The user list 
 Returns a list containing all users if the request body is empty. The user list can be searched and filtered by sending a search body. 
 
 + Parameters
-    + user_id (required, string, `XZSDGWUZTGSJDGZU`) ... ID of the user in form of an string.
+    + user_id (required, string, `XZSDGWUZTGSJDGZU`) ... ID of the user in form of a string.
 
 ### Get public user profile [GET]
 + Response 200 (application/json)
@@ -99,5 +155,9 @@ Returns a list containing all users if the request body is empty. The user list 
               ,"firstname1": "John"
               ,"lastname": "Doe"
               ,"username": "johndoe"
+              ,"feedback": {
+                "totalcount": 5
+                "averagescore": 3.5
+              }
             }
         }
