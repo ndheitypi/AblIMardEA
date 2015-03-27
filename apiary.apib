@@ -14,14 +14,14 @@ A Property can be left empty if minimum length equals zero.
 | id     |  String     | Public id to identify an user. Choosen automatically. | None (not editable) |
 | address     |  Array[Object]     | Array of address objects. | See address properties for more informations. | 0 | 10 |
 | company     |  String     | Company name. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
-| country     |  Enum     | Country the user is from. | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
+| country     |  Enum     | Country the user is from. | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
 | email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
 | feedback     |  Array[Object]     | Array of feedback objects. |  See feedback properties for more informations.  | 0 | * |
 | firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 | firstname2 |  String     | 2. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | firstname3 |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | gender     |  Enum     | Gender | One of: M,W | 1 | 1 |
-| language     |  Enum     | Preffered language for this website. | One of: DE,EN,ES,FR | 2 | 2 |
+| language     |  Enum     | Preffered language for this website. | One of: DE,EN,ES,FR | 1 | 1 |
 | lastname     |  String     | Last name. | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 | password     |  String     | The user password. | Pattern: [0-9a-zA-Z_-] | 5 | 50 |
 | username     |  String     | Username. | Unique. Pattern: [0-9a-zA-Z_-] | 3 | 100 |
@@ -30,7 +30,7 @@ A Property can be left empty if minimum length equals zero.
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| country     |  String     | Country | Must be [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 3 | 3 |
+| country     |  String     | Country | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
 | default |  Boolean     | Default address. Always true when there is only on address. | Not null. | 1 | 1 |
 | postcode |  String     | Postcode | Pattern: [0-9] | 3 | 10 |
 | phone |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
