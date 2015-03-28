@@ -46,7 +46,7 @@ A Property can be left empty if minimum length equals zero.
 | id     |  String     | Public id to identify the user who gave this feedback. Choosen automatically. | None (not editable) |
 | articleid     |  String     | Id of the article this feedback is about. | Valid Id. |  255 | 255 |
 | type |  Enum     | Type of feedback. 1=Negative, 2=Neutral, 3=Positiv | One of: 1, 2, 3 | 1 | 1 |
-| text     |  String     | The users feedback | [0-9a-zA-Z!?.:;-\n_] + whitespace |  255 | 255 |
+| text     |  String     | The users feedback | [0-9a-zA-Z!?.,:;-\n_] + whitespace |  255 | 255 |
 
 # Group Admin functions
 ## List all users [/admin/users]
