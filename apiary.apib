@@ -30,7 +30,7 @@ A Property can be left empty if minimum length equals zero.
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| country     |  String     | Country | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
+| country     |  Enum     | Country | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
 | default |  Boolean     | Default address. Always true when there is only on address. | Not null. | 1 | 1 |
 | postcode |  String     | Postcode | Pattern: [0-9] | 3 | 10 |
 | phone |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
