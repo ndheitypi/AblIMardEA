@@ -43,10 +43,12 @@ A Property can be left empty if minimum length equals zero.
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| id     |  String     | Public id to identify the user who gave this feedback. Choosen automatically. | None (not editable) |
+| userid     |  String     | Public user id to identify the user who gave this feedback. Choosen automatically. | None (not editable) |
+| date     |  Timestamp     | When was the feedback created in seconds since 1970 (UTC). | Valid timestamp. | 1 | 1 |
+| acticletitle     |  String     | The title of the article this feedback is about. | [0-9a-zA-Z_-] + whitespace |  255 | 255 |
 | articleid     |  String     | Id of the article this feedback is about. | Valid Id. |  255 | 255 |
 | type |  Enum     | Type of feedback. 1=Negative, 2=Neutral, 3=Positiv | One of: 1, 2, 3 | 1 | 1 |
-| text     |  String     | The users feedback | [0-9a-zA-Z!?.,:;-\n_] + whitespace |  255 | 255 |
+| text     |  String     | The users feedback. | [0-9a-zA-Z!?.,:;-\n_] + whitespace |  255 | 255 |
 
 # Group Admin functions
 ## List all users [/admin/users]
