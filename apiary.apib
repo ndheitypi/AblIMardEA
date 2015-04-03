@@ -13,31 +13,45 @@ A Property can be left empty if minimum length equals zero.
 |----------|:-------------:|:------:|------|:------:|------|------|
 | id     |  String     | Public id to identify an user. Choosen automatically. | None (not editable) |
 | address     |  Array[Object]     | Array of address objects. | See address properties for more informations. | 0 | 10 |
+| cancellationpolicy     |  String     | Cancellation policy, mandatory for companies in germany. | Pattern: [0-9a-zA-Z!?.:;-\n_] + whitespace | 0 | 50000 |
 | company     |  String     | Company name. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
+| companyregister     |  String     | Place where the company is registred, mandatory for companies in germany e.g. HRB 123456 | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | country     |  Enum     | Country the user is from. | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
 | email     |  String     | Email address. Used to login. | Unique. Well-formed email address. | 5 | 50 |
 | feedback     |  Array[Object]     | Array of feedback objects. |  See feedback properties for more informations.  | 0 | * |
+| feedbackneutral     |  Integer     | Number of neutral feedbacks. |  Valid Integer.  | >=0 | * |
+| feedbacknegative     |  Integer     | Number of negative feedbacks. |  Valid Integer.  | >=0 | * |
+| feedbackpositive     |  Integer     | Number of positive feedbacks. |  Valid Integer.  | >=0 | * |
+| feedbackempty     |  Integer     | Number of auctions without feedback. |  Valid Integer.  | >=0 | * |
 | firstname1 |  String     | 1. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 | firstname2 |  String     | 2. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
 | firstname3 |  String     | 3. First name | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
-| gender     |  Enum     | Gender | One of: M,W | 1 | 1 |
+| gender     |  Enum     | Gender.  | One of: M, W, null | 0 | 1 |
+| iscompany     |  Boolean     | True if the user is a company. | TRUE or FALSE | 1 | 1 |
 | language     |  Enum     | Preffered language for this website. | One of: DE,EN,ES,FR | 1 | 1 |
 | lastname     |  String     | Last name. | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
 | password     |  String     | The user password. | Pattern: [0-9a-zA-Z_-] | 5 | 50 |
+| sbt     |  String     | Standard business terms, mandatory for companies in germany. | Pattern: [0-9a-zA-Z!?.:;-\n_] + whitespace | 0 | 50000 |
+| taxnumber     |  String     | Tax id of company, mandatory for companies in germany e.g. DE 123456789 | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
+| timezone     |  Enum     | Timezone the user is in, e.g. Pacific/Auckland | Valid timezine enum. Standard is Europe/London. | 0 | 1 |
 | username     |  String     | Username. | Unique. Pattern: [0-9a-zA-Z_-] | 3 | 100 |
 
 ## Address properties
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| country     |  Enum     | Country | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
 | default |  Boolean     | Default address. Always true when there is only on address. | Not null. | 1 | 1 |
-| postcode |  String     | Postcode | Pattern: [0-9] | 3 | 10 |
+| apartment     |  String     | Apartment number. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 10 |
+| country     |  Enum     | Country | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
+| fax |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
+| housenumber     |  String     | House number. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 10 |
 | phone |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
-| street     |  String     | Street | Pattern: [0-9a-zA-Z_-] + whitespace | 3 | 100 |
-| street2     |  String     | Additional address informations. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
-| suburb     |  String     | Suburb | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 100 |
-| town |  String     | Town | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 100 |
+| postcode |  String     | Postcode | Pattern: [0-9] | 3 | 10 |
+| street     |  String     | Street | Pattern: [0-9a-zA-Z_-] + whitespace | 3 | 50 |
+| street2     |  String     | Additional address informations. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 50 |
+| suburb     |  String     | Suburb | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 50 |
+| state     |  String     | State | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 50 |
+| town |  String     | Town | Pattern: [0-9a-zA-Z_-] + whitespace | 2 | 50 |
 
 ## Feedback properties
 
@@ -49,6 +63,7 @@ A Property can be left empty if minimum length equals zero.
 | articleid     |  String     | Id of the article this feedback is about. | Valid Id. |  255 | 255 |
 | type |  Enum     | Type of feedback. 1=Negative, 2=Neutral, 3=Positiv | One of: 1, 2, 3 | 1 | 1 |
 | text     |  String     | The users feedback. | [0-9a-zA-Z!?.,:;-\n_] + whitespace |  255 | 255 |
+| wasbuyer     |  Boolean     | TRUE if the user who received the feedback was the buyer. FALSE if he was the seller. |  Not null. Valid Boolean.  | 1 | 1 |
 
 # Group Admin functions
 ## List all users [/admin/users]
