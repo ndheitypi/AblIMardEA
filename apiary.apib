@@ -40,11 +40,11 @@ A Property can be left empty if minimum length equals zero.
 
 | Name      |      Type         |  Description  | Constraints | Min.-Length | Max.-Length |
 |----------|:-------------:|:------:|------|:------:|------|------|
-| default |  Boolean     | Default address. Always true when there is only on address. | Not null. | 1 | 1 |
 | apartment     |  String     | Apartment number. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 10 |
 | country     |  Enum     | Country | Must be a 2 letter code according to [ISO-3166-1](https://github.com/ndheitypi/AblIMardEA-Users/wiki/Country-Codes) | 1 | 1 |
 | fax |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
 | housenumber     |  String     | House number. | Pattern: [0-9a-zA-Z_-] + whitespace | 0 | 10 |
+| isdefault |  Boolean     | Default address. Always true when there is only on address. | Not null. | 1 | 1 |
 | phone |  String     | Phone | Pattern: [0-9.+-()] + whitespace | 0 | 50 |
 | postcode |  String     | Postcode | Pattern: [0-9] | 3 | 10 |
 | street     |  String     | Street | Pattern: [0-9a-zA-Z_-] + whitespace | 3 | 50 |
